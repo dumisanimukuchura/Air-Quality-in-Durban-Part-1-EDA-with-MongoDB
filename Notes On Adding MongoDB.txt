@@ -1,0 +1,222 @@
+Install MongoDB Locally
+To set up MongoDB on your PC:
+
+Download MongoDB:
+
+1. Go to the MongoDB Download Center.
+
+Download the Community Server version for your operating system (Windows, macOS, or Linux).
+
+2. Install MongoDB:
+
+Follow the installation instructions for your OS.
+
+For Windows, use the MongoDB Installer.
+
+For macOS/Linux, use the package manager or follow the manual installation steps.
+
+3. Start MongoDB:
+
+After installation, start the MongoDB server:
+
+On Windows: Run mongod from the command prompt.
+
+On macOS/Linux: Run sudo systemctl start mongod or mongod in the terminal.
+
+4. Verify Installation:
+
+Open a terminal and type mongo to access the MongoDB shell.
+
+If you see the MongoDB prompt, the installation is successful.
+
+
+-------------------------------------------------------------------------------------------------------
+
+If you find an error on Windows CMD as the "mongod" command is not recognized, do the following
+
+The error 'mongod' is not recognized as an internal or external command typically occurs because the MongoDB binaries (like mongod) are not added to your system's PATH environment variable. Let’s fix this step by step.
+
+-------------------------------------------------------------------------------------------------------
+Step 1: Locate the MongoDB Installation Directory
+
+When you installed MongoDB, it was installed in a specific directory. By default:
+
+Windows: C:\Program Files\MongoDB\Server\<version>\bin
+
+macOS/Linux: /usr/local/bin or /usr/bin
+
+You need to ensure that the bin directory (where mongod.exe and mongo.exe are located) is added to your system's PATH.
+
+-------------------------------------------------------------------------------------------------------
+Step 2: Add MongoDB to the PATH (Windows)
+
+Find the MongoDB Bin Directory:
+
+Navigate to the installation directory, e.g., C:\Program Files\MongoDB\Server\<version>\bin.
+
+Copy the full path to the bin folder.
+
+Add to System PATH:
+
+Right-click on This PC or My Computer and select Properties.
+
+Click on Advanced system settings > Environment Variables.
+
+Under System variables, find the Path variable and click Edit.
+
+Click New and paste the path to the MongoDB bin folder (e.g., C:\Program Files\MongoDB\Server\<version>\bin).
+
+Click OK to save the changes.
+
+Restart Command Prompt:
+
+Close and reopen your Command Prompt or terminal for the changes to take effect.
+
+Verify:
+
+Run mongod --version in the Command Prompt. If it displays the MongoDB version, the PATH is correctly set.
+
+-------------------------------------------------------------------------------------------------------
+Step 3: Start MongoDB (Windows)
+
+Create Data Directory:
+
+MongoDB requires a directory to store its data. By default, it uses C:\data\db.
+
+Create this directory manually:
+
+mkdir C:\data\db
+
+Start MongoDB Server:
+
+Open Command Prompt and run:
+
+mongod
+
+This starts the MongoDB server. Leave this window open while working with MongoDB.
+
+Access MongoDB Shell:
+
+Open a new Command Prompt window and run:
+
+mongo
+
+This opens the MongoDB shell, where you can interact with the database.
+
+------------------------------------------------------------------------------------------------------
+
+For macOS/Linux
+If you’re using macOS or Linux, the process is slightly different:
+
+Add MongoDB to PATH:
+
+Open your terminal and edit your shell configuration file (e.g., .bashrc, .zshrc, or .bash_profile):
+
+bash
+
+nano ~/.bashrc
+Add the following line (replace <version> with your MongoDB version):
+
+bash
+
+export PATH="/usr/local/mongodb/bin:$PATH"
+Save and exit, then run:
+
+bash
+
+source ~/.bashrc
+Start MongoDB:
+
+Run:
+
+bash
+
+sudo systemctl start mongod
+Or manually:
+
+bash
+
+mongod
+Verify:
+
+Run:
+
+bash
+
+mongo
+If you see the MongoDB shell, it’s working.
+
+----------------------------------------------------------------------------------------------------
+
+Step 1: Create the Database 
+You can create the database manually if you want, but it’s not required. MongoDB will create it automatically when you import the data.
+Using MongoDB Shell (mongosh):
+Open mongosh and run: bash:
+use air_quality_db
+This switches to the air_quality_db database (or creates it if it doesn’t exist).
+
+Using MongoDB Compass:
+
+Open MongoDB Compass.
+Click Create Database.
+Enter the database name (air_quality_db) and collection name (air_quality_data).
+Click Create Database.
+
+Step 2: Import the CSV File
+When you import the CSV file, MongoDB will automatically:
+Create the database (if it doesn’t exist).
+Create the collection (if it doesn’t exist).
+Insert the data into the collection.
+
+Using mongoimport (Command Line):
+Run the following command: bash:
+
+mongoimport --db air_quality_db --collection air_quality_data --type csv --headerline --file path/to/your/file.csv
+Example: bash:
+
+mongoimport --db air_quality_db --collection air_quality_data --type csv --headerline --file C:\Users\YourName\Downloads\air_quality.csv
+
+This will:
+Create the air_quality_db database (if it doesn’t exist).
+Create the air_quality_data collection (if it doesn’t exist).
+
+Import the CSV data into the collection.
+Using MongoDB Compass (GUI):
+Open MongoDB Compass.
+Select the air_quality_db database (or create it if it doesn’t exist).
+Click Import Data.
+Choose your CSV file and follow the prompts to map fields to MongoDB document fields.
+MongoDB Compass will automatically create the collection and import the data.
+
+
+------------------------------------------------------------------------------------------------------------
+
+
+Fixing the mongo Command Issue
+The mongo command is used to access the MongoDB shell, which is a command-line interface to interact with MongoDB. If it’s not working, it’s likely because the mongo shell is no longer included in MongoDB versions 6.0 and above. MongoDB has replaced it with MongoDB Shell (mongosh).
+
+Solution: Install MongoDB Shell (mongosh)
+Download MongoDB Shell:
+
+Go to the MongoDB Shell Download Page.
+
+Download the appropriate version for your operating system.
+
+Install MongoDB Shell:
+
+Follow the installation instructions for your OS.
+
+On Windows, it will install mongosh.exe in the specified directory.
+
+Add MongoDB Shell to PATH:
+
+Add the directory where mongosh.exe is installed to your system’s PATH (similar to how you added mongod earlier).
+
+Verify Installation:
+
+Open a new Command Prompt and run:
+
+cmd
+
+mongosh
+If it opens the MongoDB shell, you’re good to go.
