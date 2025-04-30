@@ -6,7 +6,6 @@ This project explores a time series dataset for air quality in Durban, South Afr
 - **Tools Used:** Python, Pandas, MongoDB, Jupyter Notebook
 - **Author:** Dumisani Maxwell Mukuchura
 - **Contact:** dumisanimukuchura@gmail.com | [LinkedIn](https://www.linkedin.com/in/dumisani-maxwell-mukuchura-4859b7170/)
-n.
 
 ## Dataset Source
 The dataset is sourced from [Sensors.Africa Air Quality Archive - Durban](https://open.africa/dataset/sensorsafrica-airquality-archive-durban).
@@ -27,12 +26,12 @@ The project focuses on Exploratory Data Analysis (EDA) of the air quality datase
 - **PyMongo**: A Python driver for MongoDB to interact with the database.
 
 ## Project Structure
-The project is divided into the f1ollowing steps:
+The project is divided into the following steps:
 
 ### 1. Prepare Data
 - **Connect to MongoDB**: Establish a connection to the locally hosted MongoDB instance.
 - **Explore Databases and Collections**: List available databases and collections in MongoDB.
-- **View Document Structure**: Examine the structure of a single document to u1.nderstand the dataset.
+- **View Document Structure**: Examine the structure of a single document to understand the dataset.
 
 ### 2. Exploratory Data Analysis (EDA)
 - **Count Documents**: Determine the total number of documents in the Durban collection.
@@ -42,8 +41,8 @@ The project is divided into the f1ollowing steps:
 
 ### 3. Import Data into Pandas DataFrame
 - **Projection**: Focus on specific fields (e.g., `value` and `timestamp`) for analysis.
-- **Create DataFrame**: Import the filtered data into a 
-- 
+- **Create DataFrame**: Import the filtered data into a DataFrame 
+  
 ## Folder Structure
 
 Air-Quality-in-Durban-Part-1-EDA-with-MongoDB/ 
